@@ -126,3 +126,35 @@ const todoCompleted = todos.filter(function (todo) {
     return todo.text;
 })
 console.log(todoComplete);
+//---------------------Conditionals------------------//
+const x = 20;
+if (x == 10) {
+    console.log('x is 10')
+}
+else {
+    console.log('x is NOT 10');
+}
+const y = 10;
+if (y === 10) {
+    console.log('y is 10');
+} else if (y > 10) {
+    console.log('y is greater than 10');
+} else {
+    console.log('y is less than 10')
+}
+//turnuring oparator
+const z = 10;
+const color = z > 10 ? 'red' : 'blue'
+console.log(color);
+//switches
+switch (color) {
+    case 'red':
+        console, log('color is red');
+        break;
+    case 'blue':
+        console.log('color is blue');
+        break;
+    default:
+        console.log('color is NOT red or blue')
+}
+//functions
