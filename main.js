@@ -47,3 +47,16 @@ console.log(fruits)
 console.log(Array.isArray(fruits))
 console.log(fruits.indexOf('melon'))*/
 //------------------------Object-literal----------------//
+const person = {
+    firstName: 'Abraham',
+    lastName: 'Gaji',
+    age: 30,
+    hobbies: ['games', 'anime', 'movies', 'exploring'],
+    adress: {
+        street: '50 main st',
+        city: 'Boston',
+        state: 'LA'
+    }
+}
+
+console.log(person)
