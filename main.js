@@ -157,4 +157,103 @@ switch (color) {
     default:
         console.log('color is NOT red or blue')
 }
-//functions
+//-------------------------functions----------------//
+/*
+function addNums(num1, num2) {
+    return num1 + num2;
+}
+console.log(addNums(6, 6))*/
+const addNums = (num1, num2) => {
+    return num1 + num2;
+}
+console.log(addNums(6, 6))//gives same ans with the above function
+//constructor function
+/*
+function Person(firstName, lastName, dob) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.dob = new Date(dob);
+}
+// Instantiate object
+const person1 = new Person('Ab', 'Gaji', '4-3-1980')
+console.log(person1.dob)*/
+/*
+function Person(firstName, lastName, dob) {
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.dob = new Date(dob);
+    this.getBirthYear = function () {
+        return this.dob.getFullYear();
+    }
+    this.getFullYear = function () {
+        return '${}';
+    }
+}
+// Instantiate object
+const person1 = new Person('Ab', 'Gaji', '4-3-1980')
+console.log(person1.getBirthYear());*/
+//Class
+class Person {
+    constructor(firstName, lastName, dob) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+        this.dob = new Date(dob);
+    }
+    getBirthYear() {
+        return this.dob.getFullYear();
+    }
+    getFullName() {
+        return '${this.firstName} ${this.lastName}';
+    }
+}
+
+const person1 = new Person('Ab', 'Gaji', '4-3-1980');
+console.log(person1.getFullName());
+//-----------------DOM--------------------------//
+//single element
+console.log(document.getElementById('my-form'))
+console.log(document.querySelector('.container'))
+//Multi element
+console.log(document.querySelectorAll('.item'))
+console.log(document.getElementsByClassName('item'))
+console.log(document.getElementsByTagName('li'))
+// manipulating DOM
+const ul = document.querySelector('.items');
+//ul.remove();
+//ul.lastElementChild.remove()
+/*ul.firstElementChild.textContent = 'Hello'
+ul.children[1].innerText = 'Brad'
+ul.lastElementChild.innerHTML = '<h1>Hello</h1>';
+
+const btn = document.querySelector('.btn');
+btn.style.background = 'green';
+
+btn.addEventListener('click', (e) => {
+    e.preventDefault()
+    document.querySelector('#my-form').style.background = '#ccc'
+
+});*/
+const myForm = document.querySelector('#my-form')
+const nameInput = document.querySelector('#name')
+const emailInput = document.querySelector('#email')
+const msg = document.querySelector('.msg')
+const userList = document.querySelector('#users')
+myForm.addEventListener('submit', onSubmit)
+function onSubmit(e) {
+    e.preventDefault();
+    console.log(nameInput.value)
+    if (nameInput.value === '' || emailInput.value === '') {
+        //alert('please enter fields');
+        msg.innerHTML = 'please enter all fields';
+        setTimeout(() => msg.remove(), 3000);
+    } else {
+        //console.log('success');
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode('${nameInput.value}:${emailInput.value}'))
+
+        userList.appendChild(li);
+        //Clear fields
+        nameInput.value = '';
+        emailInput.value = '';
+    }
+}
