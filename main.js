@@ -53,10 +53,76 @@ const person = {
     age: 30,
     hobbies: ['games', 'anime', 'movies', 'exploring'],
     adress: {
-        street: '50 main st',
-        city: 'Boston',
-        state: 'LA'
+        street: 'y16 Osu... st',
+        city: 'jtwn',
+        state: 'Plateau',
     }
 }
 
+console.log(person.firstName, person.lastName)
+console.log(person.hobbies[1]);
+console.log(person.adress.street);
+const { firstName, lastName, } = person;
+console.log(lastName)
+person.email = 'gajiabrahamali@gmail.com';//adding email
 console.log(person)
+//----------------array of objects----------//
+const todos = [
+    {
+        id: 1,
+        text: 'take out trash',
+        isComplete: true
+    },
+    {
+        id: 2,
+        text: 'meeting the boss',
+        isComplete: true
+    },
+    {
+        id: 3,
+        text: 'check up',
+        isComplete: false
+    },
+]
+console.log(todos);
+console.log(todos[1].text)
+const todosJSON = JSON.stringify(todos);
+console.log(todosJSON);// convertint to json format for sending to a server
+//-----------------loops----------------------------//
+//for
+for (let i = 0; i < 10; i++) {
+    console.log(i);
+    console.log('for loop Number: ${i}');
+}
+//while
+let i = 0;
+while (i < 10) {
+    console.log(i);
+    // console.log('while loop Number: ${i}');
+    i++;
+}
+//looping through arrays using forEach,map,filter
+for (let todo of todos) {
+    console.log(todo.text);
+}
+// high order iteration
+todos.forEach(function (todo) {
+    console.log(todo.text);
+});
+//map
+const todoText = todos.map(function (todo) {
+    return todo.text;
+});
+console.log(todoText);
+//filter
+const todoComplete = todos.filter(function (todo) {
+    return todo.isComplete === true;
+});
+console.log(todoComplete);
+
+const todoCompleted = todos.filter(function (todo) {
+    return todo.isComplete === true;
+}).map(function (todo) {
+    return todo.text;
+})
+console.log(todoComplete);
